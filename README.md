@@ -35,7 +35,22 @@
 
 ## 怎么用
 
-`SKILL.md` 是入口，`references/` 是按需查阅的细则。不同工具挂载方式不同：
+`SKILL.md` 是入口，`references/` 是按需查阅的细则。
+
+### 装法一：让 agent 自己干（推荐）
+
+把这句话直接发给你在用的 agent：
+
+```text
+请把这个 skill 部署到本地：https://github.com/tutu-PM/tutu-wx-miniprogram
+装到你这个工具读 skill 的目录，装完把路径告诉我。
+```
+
+它知道自己的 skills 目录在哪，会自己克隆过去放好，不用你翻路径。Claude Code、Codex、WorkBuddy 这类能读写本地文件的工具都能这么装。
+
+### 装法二：手动放
+
+各工具的位置不一样：
 
 | 工具 | 放哪里 / 怎么用 |
 |---|---|
@@ -45,14 +60,14 @@
 | **任意对话式智能体** | 直接把 `SKILL.md` 贴给它，或让它先读这个文件；`references/` 里的细则让它需要时再读 |
 | **不用智能体** | 当规范文档读，按主流程自己推进 |
 
-安装示例：
+有 skill 目录的两个平台，一条命令就能装：
 
 ```bash
 # Claude Code（个人级，macOS / Linux）
-cp -r tutu-wx-miniprogram ~/.claude/skills/
+git clone https://github.com/tutu-PM/tutu-wx-miniprogram ~/.claude/skills/tutu-wx-miniprogram
 
 # WorkBuddy（Windows）
-xcopy /E /I tutu-wx-miniprogram "%USERPROFILE%\.workbuddy\skills\tutu-wx-miniprogram"
+git clone https://github.com/tutu-PM/tutu-wx-miniprogram "%USERPROFILE%\.workbuddy\skills\tutu-wx-miniprogram"
 ```
 
 放好后目录结构应为 `<skills 目录>/tutu-wx-miniprogram/SKILL.md`，重启会话后按名字加载。
