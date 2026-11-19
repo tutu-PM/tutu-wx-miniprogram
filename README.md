@@ -2,7 +2,7 @@
 
 微信小程序开发工作流 Skill。把「想法 → PRD → 设计规范 → HTML 视觉稿 → 真代码 → 验证」这条链路固定下来，避免边写边改、多页风格不统一、交付时说不清做了没做。
 
-用于 WorkBuddy 的 skill 目录，也可以直接当一份小程序开发规范文档读。
+采用 Agent Skill 通用格式（`SKILL.md` + `references/`），不绑定某个特定智能体：Claude Code、Codex、Cursor、WorkBuddy 等能吃本地指令文件的工具都能用；不用智能体时，它本身也是一份可读的小程序开发规范。
 
 ## 它解决什么
 
@@ -15,19 +15,29 @@
 | 新功能做完，把老页面改坏了 | 开工先写影响面，按波及面决定要不要先出稿 |
 | 交付时说"做完了"，但缺状态、缺兜底 | 交付前逐条对照 PRD，查页面、功能点、四态、兜底 |
 
-## 安装
+## 怎么用
 
-把整个目录放到 WorkBuddy 的用户级 skill 目录：
+`SKILL.md` 是入口，`references/` 是按需查阅的细则。不同工具挂载方式不同：
+
+| 工具 | 放哪里 / 怎么用 |
+|---|---|
+| **Claude Code** | 个人级放 `~/.claude/skills/tutu-wx-miniprogram/`，项目级放 `<项目>/.claude/skills/tutu-wx-miniprogram/` |
+| **WorkBuddy** | 放 `~/.workbuddy/skills/tutu-wx-miniprogram/` |
+| **Codex、Cursor 等规则文件驱动的工具** | 没有独立 skill 目录，把 `SKILL.md` 正文并入 `AGENTS.md`（或项目规则文件），并保留一句"细则在 `references/` 下，按需读取" |
+| **任意对话式智能体** | 直接把 `SKILL.md` 贴给它，或让它先读这个文件；`references/` 里的细则让它需要时再读 |
+| **不用智能体** | 当规范文档读，按主流程自己推进 |
+
+安装示例：
 
 ```bash
-# Windows
-xcopy /E /I tutu-wx-miniprogram "%USERPROFILE%\.workbuddy\skills\tutu-wx-miniprogram"
+# Claude Code（个人级，macOS / Linux）
+cp -r tutu-wx-miniprogram ~/.claude/skills/
 
-# macOS / Linux
-cp -r tutu-wx-miniprogram ~/.workbuddy/skills/
+# WorkBuddy（Windows）
+xcopy /E /I tutu-wx-miniprogram "%USERPROFILE%\.workbuddy\skills\tutu-wx-miniprogram"
 ```
 
-放好后目录结构应为 `~/.workbuddy/skills/tutu-wx-miniprogram/SKILL.md`，重启会话后按名字加载。
+放好后目录结构应为 `<skills 目录>/tutu-wx-miniprogram/SKILL.md`，重启会话后按名字加载。
 
 ## 目录结构
 
