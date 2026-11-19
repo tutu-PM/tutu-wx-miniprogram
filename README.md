@@ -50,7 +50,7 @@ tutu-wx-miniprogram/
     ├── prototype-to-code.md      已有原型 → 小程序代码
     ├── prd.md                    PRD 模板：定位、页面、功能、状态、兜底
     ├── design-spec.md            设计规范模板：颜色、字号、间距、按钮三态
-    ├── style-presets.md          风格套餐：暖食 / 清爽 / 卡通 / 专业
+    ├── style-presets.md          风格参考套餐（暖食/清爽/卡通/专业，可自定义）
     ├── visual-language.md        视觉语言：页面骨架、显乱的八个症状
     ├── html-prototype.md         HTML 视觉稿：单文件、多屏并排、四态齐
     ├── consistency.md            稿码一致性契约：六条硬约束 + 差异白名单
