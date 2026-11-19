@@ -41,7 +41,6 @@
 
 ```text
 请把这个 skill 部署到本地：https://github.com/tutu-PM/tutu-wx-miniprogram
-装到你这个工具读 skill 的目录，装完把路径告诉我。
 ```
 
 它知道自己的 skills 目录在哪，会自己克隆过去放好，不用你翻路径。Claude Code、Codex、WorkBuddy 这类能读写本地文件的工具都能这么装。
