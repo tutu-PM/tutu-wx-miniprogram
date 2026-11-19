@@ -33,11 +33,9 @@
 
 > 稿子里的具体颜色、文案是那个示例项目的决定，不是这份 skill 的规定。你的项目该用什么是 `design-spec.md` 里定的事。
 
-## 怎么用
+## 安装
 
 `SKILL.md` 是入口，`references/` 是按需查阅的细则。
-
-### 装法一：让 agent 自己干（推荐）
 
 把这句话直接发给你在用的 agent：
 
@@ -47,28 +45,6 @@
 ```
 
 它知道自己的 skills 目录在哪，会自己克隆过去放好，不用你翻路径。Claude Code、Codex、WorkBuddy 这类能读写本地文件的工具都能这么装。
-
-### 装法二：手动放
-
-各工具的位置不一样：
-
-| 工具 | 放哪里 / 怎么用 |
-|---|---|
-| **Claude Code** | 个人级放 `~/.claude/skills/tutu-wx-miniprogram/`，项目级放 `<项目>/.claude/skills/tutu-wx-miniprogram/` |
-| **WorkBuddy** | 放 `~/.workbuddy/skills/tutu-wx-miniprogram/` |
-| **Codex、Cursor 等规则文件驱动的工具** | 没有独立 skill 目录，把 `SKILL.md` 正文并入 `AGENTS.md`（或项目规则文件），并保留一句"细则在 `references/` 下，按需读取" |
-| **任意对话式智能体** | 直接把 `SKILL.md` 贴给它，或让它先读这个文件；`references/` 里的细则让它需要时再读 |
-| **不用智能体** | 当规范文档读，按主流程自己推进 |
-
-有 skill 目录的两个平台，一条命令就能装：
-
-```bash
-# Claude Code（个人级，macOS / Linux）
-git clone https://github.com/tutu-PM/tutu-wx-miniprogram ~/.claude/skills/tutu-wx-miniprogram
-
-# WorkBuddy（Windows）
-git clone https://github.com/tutu-PM/tutu-wx-miniprogram "%USERPROFILE%\.workbuddy\skills\tutu-wx-miniprogram"
-```
 
 放好后目录结构应为 `<skills 目录>/tutu-wx-miniprogram/SKILL.md`，重启会话后按名字加载。
 
